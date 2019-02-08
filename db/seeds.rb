@@ -1,4 +1,6 @@
 require('pry')
+require_relative('../models/city.rb')
+require_relative('../models/country.rb')
 
 country_1 = Country.new({"name" => "England"})
 country_2 = Country.new({"name" => "Scotland"})
@@ -29,6 +31,10 @@ city_3 = City.new({
   "visit_status" => "not_visited",
   "country_id" => country_3.id
   })
+
+  city_1.save()
+  city_2.save()
+  city_3.save()
 
 binding.pry
 nil
