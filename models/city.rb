@@ -2,7 +2,7 @@ require_relative("../db/sql_runner.rb")
 
 class City
 
-  attr_reader :name, :visited, :country_id
+  attr_reader :id, :name, :visit_status, :country_id
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
@@ -24,7 +24,7 @@ class City
   def City.all()
     sql = "SELECT * FROM cities"
     city_data = SqlRunner.run(sql)
-    cities = map_items(city_data)
+    cities = map_data(city_data)
     return cities
   end
 
@@ -36,7 +36,19 @@ class City
     return city
   end
 
-  def City.map_items(city_data)
+  def City.delete_all()
+    sql = "DELETE FROM cities"
+    SqlRunner.run(sql)
+  end
+
+  def City.delete(id)
+    sql = "DELETE FROM cities
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def City.map_data(city_data)
     return city_data.map {|city| City.new(city)}
   end
 

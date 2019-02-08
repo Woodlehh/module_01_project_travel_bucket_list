@@ -2,6 +2,9 @@ require('pry')
 require_relative('../models/city.rb')
 require_relative('../models/country.rb')
 
+Country.delete_all
+City.delete_all
+
 country_1 = Country.new({"name" => "England"})
 country_2 = Country.new({"name" => "Scotland"})
 country_3 = Country.new({"name" => "Wales"})

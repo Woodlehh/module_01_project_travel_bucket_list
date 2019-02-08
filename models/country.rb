@@ -22,7 +22,7 @@ class Country
   def Country.all()
     sql = "SELECT * FROM countries"
     country_data = SqlRunner.run(sql)
-    countries = map_items(country_data)
+    countries = map_data(country_data)
     return countries
   end
 
@@ -34,7 +34,19 @@ class Country
     return country
   end
 
-  def Country.map_items(country_data)
+  def Country.delete_all()
+    sql = "DELETE FROM countries"
+    SqlRunner.run(sql)
+  end
+
+  def Country.delete(id)
+    sql = "DELETE FROM countries
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+  def Country.map_data(country_data)
     return country_data.map {|country| Country.new(country)}
   end
 
