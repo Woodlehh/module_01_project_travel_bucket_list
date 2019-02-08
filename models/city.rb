@@ -21,4 +21,23 @@ class City
     @id = id.to_i
   end
 
+  def City.all()
+    sql = "SELECT * FROM cities"
+    city_data = SqlRunner.run(sql)
+    cities = map_items(city_data)
+    return cities
+  end
+
+  def City.find(id)
+    sql = "SELECT * FROM cities WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    city = City.new(result)
+    return city
+  end
+
+  def City.map_items(city_data)
+    return city_data.map {|city| City.new(city)}
+  end
+
 end

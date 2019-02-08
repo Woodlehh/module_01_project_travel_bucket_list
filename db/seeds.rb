@@ -32,9 +32,12 @@ city_3 = City.new({
   "country_id" => country_3.id
   })
 
-  city_1.save()
-  city_2.save()
-  city_3.save()
+city_1.save()
+city_2.save()
+city_3.save()
+
+cities = City.all()
+countries = Country.all()
 
 binding.pry
 nil
