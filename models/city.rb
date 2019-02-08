@@ -28,6 +28,14 @@ class City
     SqlRunner.run(sql, values)
   end
 
+  def country()
+    sql = "SELECT * FROM countries
+    WHERE id = $1"
+    values = [@country_id]
+    results = SqlRunner.run(sql, values)
+    return Country.new(results.first)
+  end
+
   def City.all()
     sql = "SELECT * FROM cities"
     city_data = SqlRunner.run(sql)
