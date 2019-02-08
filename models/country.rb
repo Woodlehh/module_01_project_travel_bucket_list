@@ -2,7 +2,8 @@ require_relative("../db/sql_runner.rb")
 
 class Country
 
-  attr_reader :id, :name
+  attr_reader :id
+  attr_accessor :name
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
@@ -17,6 +18,12 @@ class Country
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i
+  end
+
+  def edit()
+    sql = "UPDATE countries SET name = $1 WHERE id = $2"
+    values = [@name, @id]
+    SqlRunner.run(sql, values)
   end
 
   def Country.all()

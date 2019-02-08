@@ -2,7 +2,8 @@ require_relative("../db/sql_runner.rb")
 
 class City
 
-  attr_reader :id, :name, :visit_status, :country_id
+  attr_reader :id
+  attr_accessor :name, :visit_status, :country_id
 
   def initialize(details)
     @id = details['id'].to_i if details['id']
@@ -19,6 +20,12 @@ class City
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i
+  end
+
+  def edit()
+    sql = "UPDATE cities SET (name, visit_status, country_id) = ($1, $2, $3) WHERE id = $4"
+    values = [@name, @visit_status, @country_id, @id]
+    SqlRunner.run(sql, values)
   end
 
   def City.all()
