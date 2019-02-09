@@ -2,8 +2,8 @@ require('pry')
 require_relative('../models/city.rb')
 require_relative('../models/country.rb')
 
-Country.delete_all
-City.delete_all
+City.delete_all()
+Country.delete_all()
 
 country_1 = Country.new({'name' => 'England'})
 country_2 = Country.new({'name' => 'Scotland'})
@@ -24,20 +24,69 @@ city_1 = City.new({
   })
 
 city_2 = City.new({
-  'name' => 'Glasgow',
+  'name' => 'Manchester',
   'visit_status' => 'want_to_visit',
-  'country_id' => country_2.id
+  'country_id' => country_1.id
   })
 
 city_3 = City.new({
+  'name' => 'Edinburgh',
+  'visit_status' => 'visited',
+  'country_id' => country_2.id
+  })
+
+city_4 = City.new({
+  'name' => 'Glasgow',
+  'visit_status' => 'not_visited',
+  'country_id' => country_2.id
+  })
+
+city_5 = City.new({
   'name' => 'Cardiff',
   'visit_status' => 'not_visited',
   'country_id' => country_3.id
   })
 
+city_6 = City.new({
+  'name' => 'Swansea',
+  'visit_status' => 'not_visited',
+  'country_id' => country_3.id
+  })
+
+city_7 = City.new({
+  'name' => 'Belfast',
+  'visit_status' => 'want_to_visit',
+  'country_id' => country_4.id
+  })
+
+city_8 = City.new({
+  'name' => 'Derry',
+  'visit_status' => 'not_visited',
+  'country_id' => country_4.id
+  })
+
+city_9 = City.new({
+  'name' => 'Dublin',
+  'visit_status' => 'not_visited',
+  'country_id' => country_5.id
+  })
+
+city_10 = City.new({
+  'name' => 'Cork',
+  'visit_status' => 'not_visited',
+  'country_id' => country_5.id
+  })
+
 city_1.save()
 city_2.save()
 city_3.save()
+city_4.save()
+city_5.save()
+city_6.save()
+city_7.save()
+city_8.save()
+city_9.save()
+city_10.save()
 
 cities = City.all()
 countries = Country.all()
