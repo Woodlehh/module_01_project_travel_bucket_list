@@ -1,14 +1,11 @@
 <h1>Countries</h1>
 
 <ul>
-  <% for country in @countries %>
-  <li>
-    <p>herherh</p>
-    <p>
-      <form action="/countries/<%= country.id %>/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-      </form>
-    </p>
-  </li>
-  <% end %>
+  <% @countries.each do |country| %>
+  <a href="/countries/<%=country.id%>"<h3> <%= country.name %> </h3></a>
 </ul>
+
+<p> Country id: <%= country.id %> '<%= country.name %>'</p>
+<% end %>
+
+<h4><a href="/countries/new">Add a Country</a></h4>

@@ -2,13 +2,8 @@
 
 <ul>
   <% for city in @cities %>
-  <li>
-    <p>ddd</p>
-    <p>
-      <form action="/cities/<%= city.id %>/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-      </form>
-    </p>
-  </li>
+  <a href="/cities/<%=city.id%>"><h3> <%= city.name %> </h3></a>
   <% end %>
 </ul>
+
+<h4><a href="/cities/new">Add a City</a></h4>

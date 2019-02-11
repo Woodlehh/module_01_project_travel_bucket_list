@@ -17,28 +17,29 @@ end
 
 post '/cities' do
   City.new(params).save
-  redirect to("/cities")
+  redirect('/cities')
 end
 
 get '/cities/:id' do
   @city = City.find(params['id'])
-  erb(:show)
+  erb(:"cities/show")
 end
 
-get '/cities/:id/edit' do
-  @countries = Country.all
-  @cities = City.find(params['id'])
-  erb(:edit)
+get '/cities/:id/edit' do #edit city info
+  @city = City.find(params['id'])
+  erb(:"cities/edit")
 end
 
-post '/cities/:id' do
-  city = City.find(params)
-  city.edit
-  redirect to "/cities/#{params['id']}"
+post '/cities/:id' do #create a new City object and update cities db
+  @cities = City.find(params[:id])
+  @cities.name = params['name']
+  @cities.visit_status = params['visit_status']
+  @cities.country_id = params['country_id']
+  @cities.update()
+  redirect('/cities')
 end
 
 post '/cities/:id/delete' do
-  city = City.find(params['id'])
-  city.delete
-  redirect to("/cities")
+  City.delete(params['id'])
+  redirect('/cities')
 end

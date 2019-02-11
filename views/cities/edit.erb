@@ -1,0 +1,7 @@
+<h2>Edit <%= @city.name %></h2>
+<form method="POST" action="/cities/<%= @city.id %>">
+      <label for="city_name">City Name:</label>
+      <option value=<%= @city.id %> selected><%= @city.name %></option>
+      <input type="text" name="name" id="name" value="<%= @city.name %>"/>
+      <input type="submit" value="Edit City"/>
+</form>

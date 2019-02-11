@@ -91,17 +91,17 @@ city_10.save()
 cities = City.all()
 countries = Country.all()
 
-country_1.name = 'United States'
-country_1.edit()
-
-city_1.name = 'San Francisco'
-city_1.edit()
-
-city_2.visit_status = 'visited'
-city_2.edit()
-
-city_3.country_id = country_1.id
-city_3.edit()
+# country_1.name = 'United States'
+# country_1.update()
+#
+# city_1.name = 'San Francisco'
+# city_1.update()
+#
+# city_2.visit_status = 'visited'
+# city_2.update()
+#
+# city_3.country_id = country_1.id
+# city_3.update()
 
 binding.pry
 nil

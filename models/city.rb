@@ -22,7 +22,7 @@ class City
     @id = id.to_i
   end
 
-  def edit()
+  def update()
     sql = "UPDATE cities SET (name, visit_status, country_id) = ($1, $2, $3) WHERE id = $4"
     values = [@name, @visit_status, @country_id, @id]
     SqlRunner.run(sql, values)

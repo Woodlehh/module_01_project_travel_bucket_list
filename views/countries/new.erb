@@ -1,23 +1,6 @@
-<h1>All dem countries</h1>
+<form action="/countries" method="post">
 
-<form action="/cities" method="post">
-  <label>
-  Select a city:
-    <select name="city_id">
-      <% for city in @cities %>
-      <option value="<%= city.id %>"><%= city.name %></option>
-      <% end %>
-    </select>
-  </label>
-
-  <label>
-    Select a country:
-    <select name="country_id">
-      <% for country in @countries %>
-      <option value="<%= country.id %>"><%= country.name %></option>
-      <% end %>
-    </select>
-  </label>
-
-  <input class="btn btn--action" type='submit' value="SOMETHING!">
+  <label for="country_name">Type in the name of the new country:</label>
+  <input type="text" name="name" id="country_name"/>
+  <input type="submit" value="Add Country"/>
 </form>
