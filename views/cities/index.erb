@@ -1,0 +1,14 @@
+<h1>Cities</h1>
+
+<ul>
+  <% for city in @cities %>
+  <li>
+    <p>ddd</p>
+    <p>
+      <form action="/cities/<%= city.id %>/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+    </p>
+  </li>
+  <% end %>
+</ul>

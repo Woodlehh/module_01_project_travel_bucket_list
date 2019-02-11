@@ -1,0 +1,14 @@
+<h1>Countries</h1>
+
+<ul>
+  <% for country in @countries %>
+  <li>
+    <p>herherh</p>
+    <p>
+      <form action="/countries/<%= country.id %>/delete" method="POST">
+        <input class="btn btn--danger" type="submit" value="delete" />
+      </form>
+    </p>
+  </li>
+  <% end %>
+</ul>

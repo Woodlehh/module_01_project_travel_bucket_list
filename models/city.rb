@@ -29,11 +29,8 @@ class City
   end
 
   def country()
-    sql = "SELECT * FROM countries
-    WHERE id = $1"
-    values = [@country_id]
-    results = SqlRunner.run(sql, values)
-    return Country.new(results.first)
+    country = Country.find(@country_id)
+    return country
   end
 
   def City.all()
