@@ -33,6 +33,14 @@ class City
     return country
   end
 
+  def City.visits(visit_status)
+    sql = "SELECT * FROM cities WHERE visit_status = $1"
+    values = [visit_status]
+    city_data = SqlRunner.run(sql, values)
+    result = map_data(city_data)
+    return result
+  end
+
   def City.all()
     sql = "SELECT * FROM cities"
     city_data = SqlRunner.run(sql)
