@@ -20,6 +20,10 @@ post '/countries' do
   redirect('/countries')
 end
 
+get '/countries/delete-all-warning' do
+  erb(:"/countries/delete_all_warning")
+end
+
 get '/countries/:id' do
   @country = Country.find(params['id'])
   @cities = City.all()

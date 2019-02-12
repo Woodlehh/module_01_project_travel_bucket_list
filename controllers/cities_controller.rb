@@ -22,6 +22,10 @@ post '/cities' do
   redirect('/cities')
 end
 
+get '/cities/delete-all-warning' do
+  erb(:"/cities/delete_all_warning")
+end
+
 get '/cities/:id' do
   @city = City.find(params['id'])
   erb(:"cities/show")
