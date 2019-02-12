@@ -1,4 +1,11 @@
-<h5>Country: <%= @country.name %></h5>
+<h1>Country: <%= @country.name %></h1>
 
-<a href="/countries/<%= @country.id %>/edit">Edit</a>
-<form action="/countries/<%= @country.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+<h2><%= @country.name %>'s cities:</h2>
+  <% for city in @cities %>
+  <% if city.country.name == @country.name %>
+  <h3><a href="/cities/<%=city.id%>"><%= city.name %></a></h3><%= city.visit_status %>
+  <% end %>
+  <% end %>
+
+
+<form action="/countries/<%=@country.id%>/edit"><input type="submit" value="Change Details or Delete"></form>

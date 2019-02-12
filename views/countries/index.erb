@@ -2,10 +2,8 @@
 
 <ul>
   <% @countries.each do |country| %>
-  <a href="/countries/<%=country.id%>"<h3> <%= country.name %> </h3></a>
+  <a href="/countries/<%=country.id%>"<li><h3> <%= country.name %> </h3></li>
+<% end %>
 </ul>
 
-<p> Country id: <%= country.id %> '<%= country.name %>'</p>
-<% end %>
-
-<h4><a href="/countries/new">Add a Country</a></h4>
+<form action="/countries/new"><input type="submit" value="Add a Country"></form>

@@ -1,23 +1,27 @@
-<h1>All dem cities</h1>
-
 <form action="/cities" method="post">
-  <label>
-  Select a city:
-    <select name="city_id">
-      <% for city in @cities %>
-      <option value="<%= city.id %>"><%= city.name %></option>
-      <% end %>
-    </select>
-  </label>
 
-  <label>
-    Select a country:
-    <select name="country_id">
-      <% for country in @countries %>
-      <option value="<%= country.id %>"><%= country.name %></option>
-      <% end %>
-    </select>
-  </label>
+  <label for="city_name">Type in the name of the new city:</label>
+  <input type="text" name="name" id="city_name"/>
 
-  <input class="btn btn--action" type='submit' value="SOMETHING!">
+  <br>
+
+  <label for="visit_status">Have you visited this city?</label>
+  <select name="visit_status" id="visit-status">
+    <option disabled selected value> -- select an option -- </option>
+    <% @status.each do |status| %>
+    <option value="<%= status %>"><%= status %></option>
+    <% end %>
+  </select>
+
+  <br>
+
+  <label for="country_id">What country is this city in?</label>
+  <select name="country_id" id="country-id">
+    <option disabled selected value> -- select an option -- </option>
+    <% @countries.each do |country| %>
+    <option value=<%= country.id %>><%= country.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Add City"/>
 </form>

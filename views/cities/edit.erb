@@ -2,7 +2,7 @@
 <form method="POST" action="/cities/<%= @city.id %>">
   <label for="name">City Name:</label>
   <input type="text" name="name" id="city_name" value="<%= @city.name %>"/>
-
+  <br>
   <select name="visit_status" id="visit-status">
     <% @status.each do |status| %>
     <% if status == @city.visit_status %>
@@ -12,19 +12,18 @@
     <% end %>
     <% end %>
   </select>
-
-  <select name="country_id" id="visit-status">
+  <br>
+  <select name="country_id" id="country-id">
     <% @countries.each do |country| %>
     <% if country.name == @city.country.name %>
     <option value=<%= country.id %> selected><%= country.name %> </option>
     <% else %>
-    <option value=<% country.id %>><%= country.name %></option>
+    <option value=<%= country.id %>><%= country.name %></option>
     <% end %>
     <% end %>
   </select>
-
-  <input type="submit" value="Edit City"/>
+  <br>
+  <input type="submit" value="Confirm Edit"/>
+  </form>
 
   <form action="/cities/<%= @city.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
-
-</form>
