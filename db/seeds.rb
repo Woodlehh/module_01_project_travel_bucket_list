@@ -19,61 +19,61 @@ country_5.save()
 
 city_1 = City.new({
   'name' => 'London',
-  'visit_status' => 'visited',
+  'visit_status' => 'Visited',
   'country_id' => country_1.id
   })
 
 city_2 = City.new({
   'name' => 'Manchester',
-  'visit_status' => 'want_to_visit',
+  'visit_status' => 'Want To Visit',
   'country_id' => country_1.id
   })
 
 city_3 = City.new({
   'name' => 'Edinburgh',
-  'visit_status' => 'visited',
+  'visit_status' => 'Visited',
   'country_id' => country_2.id
   })
 
 city_4 = City.new({
   'name' => 'Glasgow',
-  'visit_status' => 'not_visited',
+  'visit_status' => 'Not Visited',
   'country_id' => country_2.id
   })
 
 city_5 = City.new({
   'name' => 'Cardiff',
-  'visit_status' => 'not_visited',
+  'visit_status' => 'Not Visited',
   'country_id' => country_3.id
   })
 
 city_6 = City.new({
   'name' => 'Swansea',
-  'visit_status' => 'not_visited',
+  'visit_status' => 'Not Visited',
   'country_id' => country_3.id
   })
 
 city_7 = City.new({
   'name' => 'Belfast',
-  'visit_status' => 'want_to_visit',
+  'visit_status' => 'Want To Visit',
   'country_id' => country_4.id
   })
 
 city_8 = City.new({
   'name' => 'Derry',
-  'visit_status' => 'not_visited',
+  'visit_status' => 'Not Visited',
   'country_id' => country_4.id
   })
 
 city_9 = City.new({
   'name' => 'Dublin',
-  'visit_status' => 'not_visited',
+  'visit_status' => 'Not Visited',
   'country_id' => country_5.id
   })
 
 city_10 = City.new({
   'name' => 'Cork',
-  'visit_status' => 'not_visited',
+  'visit_status' => 'Not Visited',
   'country_id' => country_5.id
   })
 
@@ -97,7 +97,7 @@ countries = Country.all()
 # city_1.name = 'San Francisco'
 # city_1.update()
 #
-# city_2.visit_status = 'visited'
+# city_2.visit_status = 'Visited'
 # city_2.update()
 #
 # city_3.country_id = country_1.id

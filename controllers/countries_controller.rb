@@ -30,10 +30,16 @@ get '/countries/:id/edit' do #edit city info
   erb(:"countries/edit")
 end
 
-post '/countries/:id' do #create a new Country object and update countries db
-  @country = Country.find(params[:id])
-  @country.name = params['name']
-  @country.update()
+# post '/countries/:id' do #create a new Country object and update countries db
+#   @country = Country.find(params[:id])
+#   @country.name = params['name']
+#   @country.update()
+#   redirect('/countries')
+# end
+
+post '/countries/:id' do
+  country = Country.new(params)
+  country.update()
   redirect('/countries')
 end
 
