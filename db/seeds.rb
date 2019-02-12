@@ -91,6 +91,8 @@ city_10.save()
 cities = City.all()
 countries = Country.all()
 visited_cities = City.visits('Visited')
+not_visited = City.visits('Not Visited')
+want_to_visit = City.visits('Want To Visit')
 # country_1.name = 'United States'
 # country_1.update()
 #

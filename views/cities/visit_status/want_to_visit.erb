@@ -1,0 +1,10 @@
+<h1>Cities To Visit</h1>
+<% @want_to_visit.each do |city| %>
+  <% if city.country_id > 1 %>
+    Country: <%=city.country.name%>
+  <% end %>
+<%end%>
+City: <%=city.name%>
+
+
+<h1>hello</h1>

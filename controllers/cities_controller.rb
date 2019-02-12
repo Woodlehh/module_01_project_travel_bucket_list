@@ -6,8 +6,23 @@ require_relative('../models/country.rb')
 also_reload('../models/*')
 
 get '/cities' do
-  @cities = City.all
+  @cities = City.all()
   erb(:"cities/index")
+end
+
+get '/cities/visited' do
+  @visited = City.visits("Visited")
+  erb(:"cities/visit_status/visited")
+end
+
+get '/cities/want-to-visit' do
+  @want_to_visit = City.visits("Want To Visit")
+  erb(:"cities/visit_status/want_to_visit")
+end
+
+get '/cities/not-visited' do
+  @not_visited = City.visits("Not Visited")
+  erb(:"cities/visit_status/not_visited")
 end
 
 get '/cities/new' do
