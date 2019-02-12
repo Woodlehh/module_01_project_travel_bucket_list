@@ -26,6 +26,11 @@ get '/countries/:id' do
   erb(:"countries/show")
 end
 
+post '/countries/delete-all' do
+  Country.delete_all
+  redirect('/countries')
+end
+
 get '/countries/:id/edit' do #edit city info
   @country = Country.find(params['id'])
   erb(:"countries/edit")
