@@ -5,6 +5,7 @@ body {
   background-repeat: no-repeat;
   background-position: top center;
   font-family: 'Open Sans';
+  text-rendering: optimizeLegibility;
 }
 
 html, body {
