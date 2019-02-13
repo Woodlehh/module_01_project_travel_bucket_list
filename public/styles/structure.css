@@ -1,7 +1,48 @@
-/* body {
-  background-image: "/images/world_map.jpg"
-} */
+body {
+  background-image: url("/images/world_map_faded_sea.jpg");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  font-family: 'Open Sans';
+}
+
+html, body {
+  min-height:100%;
+}
+
+h1 {
+  font-family: 'Oleo Script';
+  font-size: 80px;
+  color: #444;
+}
 
 ul {
-  list-style-type: none;
+list-style-type: none;
+padding: 0;
+margin: 0;
+}
+
+ul#menu {
+  border-bottom: 1px solid #999;
+  background-color: rgba(255,255,255,0.2);
+}
+
+ul#menu li {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+ul#menu li a {
+  color: #444;
+  font-size: 18px;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+}
+
+ul#menu li a:hover {
+  border-bottom: none;
+}
+
+a, a:visited {
+  color: #444
 }
