@@ -25,7 +25,8 @@ get '/countries/delete-all-warning' do
 end
 
 get '/countries/:id' do
-  @country = Country.find(params['id'])
+  @country = Country.find_by_id(params['id'])
+  halt 404, "Invalid Country" unless @country
   @cities = City.all()
   erb(:"countries/show")
 end
@@ -36,7 +37,8 @@ post '/countries/delete-all' do
 end
 
 get '/countries/:id/edit' do #edit city info
-  @country = Country.find(params['id'])
+  @country = Country.find_by_id(params['id'])
+  halt 404, "Invalid Country" unless @country
   erb(:"countries/edit")
 end
 
@@ -47,6 +49,8 @@ post '/countries/:id' do
 end
 
 post '/countries/:id/delete' do
-  Country.delete(params['id'])
+  @country = Country.find_by_id(params['id'])
+  halt 404, "Invalid Country" unless @country
+  Country.delete_by_id(params['id'])
   redirect('/countries')
 end

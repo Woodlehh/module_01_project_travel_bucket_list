@@ -33,10 +33,11 @@ class Country
     return countries
   end
 
-  def Country.find(id)
+  def Country.find_by_id(id)
     sql = "SELECT * FROM countries WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
+    return false if result.nil?
     country = Country.new(result)
     return country
   end
@@ -46,7 +47,7 @@ class Country
     SqlRunner.run(sql)
   end
 
-  def Country.delete(id)
+  def Country.delete_by_id(id)
     sql = "DELETE FROM countries
     WHERE id = $1"
     values = [id]

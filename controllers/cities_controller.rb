@@ -18,15 +18,14 @@ get '/cities/new' do
 end
 
 get '/cities/status/:status' do
-  @cities = City.all()
   if params[:status] == 'visited'
-    @city_status = City.visits('Visited')
+    @city_status = City.find_by_status('Visited')
     @city_title = "Visited Cities"
   elsif params[:status] == 'not-visited'
-    @city_status = City.visits('Not Visited')
+    @city_status = City.find_by_status('Not Visited')
     @city_title = "Cities Not Visited"
   elsif params[:status] == 'want-to-visit'
-    @city_status = City.visits('Want To Visit')
+    @city_status = City.find_by_status('Want To Visit')
     @city_title = "Cities To Visit"
   else
     halt 404, "Invalid City Visited Status"
@@ -44,12 +43,14 @@ get '/cities/delete-all-warning' do
 end
 
 get '/cities/:id' do
-  @city = City.find(params['id'])
+  @city = City.find_by_id(params['id'])
+  halt 404, "Invalid City" unless @city
   erb(:"cities/show")
 end
 
 get '/cities/:id/edit' do #edit city info
-  @city = City.find(params['id'])
+  @city = City.find_by_id(params['id'])
+  halt 404, "Invalid City" unless @city
   @status = ["Visited", "Not Visited", "Want To Visit"]
   @countries = Country.all()
   erb(:"cities/edit")
@@ -67,6 +68,8 @@ post '/cities/:id' do
 end
 
 post '/cities/:id/delete' do
-  City.delete(params['id'])
+  @city = City.find_by_id(params['id'])
+  halt 404, "Invalid City" unless @city
+  City.delete_by_id(params['id'])
   redirect('/cities')
 end

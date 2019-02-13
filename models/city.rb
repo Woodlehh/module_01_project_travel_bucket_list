@@ -33,7 +33,7 @@ class City
     return country
   end
 
-  def City.visits(visit_status)
+  def City.find_by_status(visit_status)
     sql = "SELECT * FROM cities WHERE visit_status = $1"
     values = [visit_status]
     city_data = SqlRunner.run(sql, values)
@@ -48,10 +48,11 @@ class City
     return cities
   end
 
-  def City.find(id)
+  def City.find_by_id(id)
     sql = "SELECT * FROM cities WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values).first
+    return false if result.nil?
     city = City.new(result)
     return city
   end
@@ -61,7 +62,7 @@ class City
     SqlRunner.run(sql)
   end
 
-  def City.delete(id)
+  def City.delete_by_id(id)
     sql = "DELETE FROM cities
     WHERE id = $1"
     values = [id]
