@@ -1,9 +1,0 @@
-<h1>Cities Not Visited</h1>
-<% @not_visited.each do |city| %>
-  <br>
-  <% unless city.country_id > 1 %>
-    <strong>Country: <%=city.country.name%></strong>
-  <% else %>
-      City: <%=city.name%>
-  <% end %>
-<% end %>
