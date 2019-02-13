@@ -10,26 +10,43 @@ get '/cities' do
   erb(:"cities/index")
 end
 
-get '/cities/visited' do
-  @visited = City.visits("Visited")
-  erb(:"cities/visit_status/visited")
-end
-
-get '/cities/want-to-visit' do
-  @want_to_visit = City.visits("Want To Visit")
-  erb(:"cities/visit_status/want_to_visit")
-end
-
-get '/cities/not-visited' do
-  @not_visited = City.visits("Not Visited")
-  erb(:"cities/visit_status/not_visited")
-end
+# get '/cities/visited' do
+#   @visited = City.visits("Visited")
+#   erb(:"cities/visit_status/visited")
+# end
+#
+# get '/cities/want-to-visit' do
+#   @want_to_visit = City.visits("Want To Visit")
+#   erb(:"cities/visit_status/want_to_visit")
+# end
+#
+# get '/cities/not-visited' do
+#   @not_visited = City.visits("Not Visited")
+#   erb(:"cities/visit_status/not_visited")
+# end
 
 get '/cities/new' do
   @cities = City.all
   @status = ["Visited", "Not Visited", "Want To Visit"]
   @countries = Country.all()
   erb(:"cities/new")
+end
+
+get '/cities/status/:status' do
+  @cities = City.all()
+  if params[:status] == 'visited'
+    @city_status = City.visits('Visited')
+    @city_title = "Visited Cities!"
+  elsif params[:status] == 'not-visited'
+    @city_status = City.visits('Not Visited')
+    @city_title = "Cities Not Visited"
+  elsif params[:status] == 'want-to-visit'
+    @city_status = City.visits('Want To Visit')
+    @city_title = "Cities To Visit!"
+  else
+    halt 404, "Invalid City Visited Status"
+  end
+  erb(:"cities/visit_status")
 end
 
 post '/cities' do

@@ -1,0 +1,12 @@
+<h1><%= @city_title %></h1>
+
+<% @city_status.each do |city| %>
+<br>
+<%= city.name %>
+<% end %>
+
+<form action="/cities/status/visited"><input type="submit" value="Visited Cities"></form>
+
+<form action="/cities/status/not-visited"><input type="submit" value="Cities not visited"></form>
+
+<form action="/cities/status/want-to-visit"><input type="submit" value="Cities To Visit"></form>

@@ -43,7 +43,7 @@ end
 post '/countries/:id' do
   country = Country.new(params)
   country.update()
-  redirect('/countries' + params['id'].to_s)
+  redirect('/countries/' + params['id'].to_s)
 end
 
 post '/countries/:id/delete' do
