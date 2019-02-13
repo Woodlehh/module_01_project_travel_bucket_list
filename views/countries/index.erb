@@ -2,10 +2,12 @@
 
 <ul>
   <% @countries.each do |country| %>
-  <a href="/countries/<%=country.id%>"<li><h3> <%= country.name %> </h3></li>
+  <li><a href="/countries/<%=country.id%>">
+  <%= country.name %>
+  </a></li>
 <% end %>
 </ul>
 
 <form action="/countries/new"><button class="button" type="submit"><span>Add a Country</span></button></form>
 
-<form action="/countries/delete-all-warning" method="GET"><button class="button" type="submit"><span>Delete All Countries</span></button></form>
+<form action="/countries/delete-all-warning" method="GET"><button class="button red" type="submit"><span>Delete All Countries</span></button></form>

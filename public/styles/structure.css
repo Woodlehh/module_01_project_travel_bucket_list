@@ -16,12 +16,32 @@ h1 {
   font-family: 'Oleo Script';
   font-size: 80px;
   color: #444;
+  margin: 10px;
+}
+
+input, select {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+label {
+  font-size: 20px;
+}
+
+form {
+  padding-top: 25px;
 }
 
 ul {
 list-style-type: none;
 padding: 0;
 margin: 0;
+}
+
+ul li a {
+  display: inline-block;
+  font-size: 20px;
+  padding-bottom: 7px;
 }
 
 ul#menu {
@@ -47,4 +67,8 @@ ul#menu li a:hover {
 
 a, a:visited {
   color: #444
+}
+
+.warning {
+  color: #c9470c;
 }

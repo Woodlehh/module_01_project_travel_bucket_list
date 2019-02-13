@@ -1,63 +1,89 @@
-.button, input[type=button] {
-    display: inline-block;
-    margin: 10px;
-    padding: 0;
-    border: 0;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-box-shadow:    0 8px 0 #2454a5, 0 15px 20px rgba(0, 0, 0, .35);
-    -moz-box-shadow: 0 8px 0 #2454a5, 0 15px 20px rgba(0, 0, 0, .35);
-    box-shadow: 0 8px 0 #2454a5, 0 15px 20px rgba(0, 0, 0, .35);
-    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
-    -moz-transition: -moz-box-shadow .1s ease-in-out;
-    -o-transition: -o-box-shadow .1s ease-in-out;
-    transition: box-shadow .1s ease-in-out;
-    font-size: 50px;
-    color: #fff;
-    outline: none;
-    background-color: transparent;
+body {
+  text-align: center;
+}
+
+.button {
+  display: inline-block;
+  margin: 10px;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 8px 0 #3755c5, 0 15px 20px rgba(0, 0, 0, .35);
+  transition: box-shadow .1s ease-in-out;
+  font-size: 26px;
+  color: #fff;
+}
+
+.button.large {
+  font-size: 50px;
+}
+
+.button.green {
+  box-shadow: 0 8px 0 #217a21, 0 15px 20px rgba(0, 0, 0, .35);
+}
+
+.button.red {
+  box-shadow: 0 8px 0 #7a2020, 0 15px 20px rgba(0, 0, 0, .35);
 }
 
 .button span {
-    display: inline-block;
-    padding: 20px 30px;
-    background-color: #0061ff;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(217, 90%, 80%, .8)), to(hsla(217, 90%, 70%, .2)));
-    background-image: -webkit-linear-gradient(hsla(217, 90%, 80%, .8), hsla(217, 90%, 70%, .2));
-    background-image: -moz-linear-gradient(hsla(217, 90%, 80%, .8), hsla(217, 90%, 70%, .2));
-    background-image: -o-linear-gradient(hsla(217, 90%, 80%, .8), hsla(217, 90%, 70%, .2));
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
-    -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
-    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
-    font-family: 'Oleo Script', Arial, sans-serif;
-    color: white;
-    line-height: 1;
-    text-shadow: 0 -1px 1px rgba(36, 79, 150, .7);
-    -webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
-    -moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
-    -o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
-    transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+  display: inline-block;
+  padding: 8px 20px;
+  background: #4e88f4;
+  background: linear-gradient(to bottom, #4e88f4 0%,#2466f4 100%);
+  border-radius: 8px;
+  font-family: 'Oleo Script', Arial, sans-serif;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 -1px 1px rgba(49, 59, 175, .7);
+  transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+
+.button.large span {
+  padding: 20px 30px;
+}
+
+.button.green span {
+  background: #4ef450;
+  background: linear-gradient(to bottom, #4ef450 0%,#24f42a 100%);
+  background: #45d153;
+  background: linear-gradient(to bottom, #45d153 0%,#18a522 100%);
+  text-shadow: 0 -1px 1px rgba(49, 175, 51, .7);
+}
+
+.button.red span {
+  background: #f44e4e;
+  background: linear-gradient(to bottom, #f44e4e 0%,#24f42a 100%);
+  background: #d14545;
+  background: linear-gradient(to bottom, #d14545 0%,#a51818 100%);
+  text-shadow: 0 -1px 1px rgba(49, 175, 51, .7);
 }
 
 .button:hover span {
-    background-color: #2d7dff;
-    text-shadow: 0 -1px 1px rgba(6, 78, 201, .9), 0 0 5px rgba(255, 255, 255, .8);
+  background-color: #6a7dec;
+  text-shadow: 0 -1px 1px rgba(49, 59, 175, .9), 0 0 5px rgba(255, 255, 255, .8);
+}
+
+.button.green:hover span {
+  background-color: #6aec70;
+}
+
+.button.red:hover span {
+  background-color: #ec6a6a;
 }
 
 .button:active, .button:focus {
-    -webkit-box-shadow:    0 8px 0 #1453ba, 0 12px 10px rgba(0, 0, 0, .3);
-    -moz-box-shadow: 0 8px 0 #1453ba, 0 12px 10px rgba(0, 0, 0, .3);
-    box-shadow:    0 8px 0 #1453ba, 0 12px 10px rgba(0, 0, 0, .3);
-    outline: none;
+  box-shadow: 0 8px 0 #3755c5, 0 12px 10px rgba(0, 0, 0, .3);
+}
+.button.green:active, .button.green:focus {
+  box-shadow: 0 8px 0 #217a21, 0 12px 10px rgba(0, 0, 0, .3);
+}
+.button.red:active, .button.red:focus {
+  box-shadow: 0 8px 0 #7a2020, 0 12px 10px rgba(0, 0, 0, .3);
 }
 
 .button:active span {
-    -webkit-transform: translate(0, 4px);
-    -moz-transform: translate(0, 4px);
-    -o-transform: translate(0, 4px);
-    transform: translate(0, 4px);
+  transform: translate(0, 4px);
 }

@@ -11,7 +11,7 @@ get '/cities' do
 end
 
 get '/cities/new' do
-  @cities = City.all
+  @cities = City.all()
   @status = ["Visited", "Not Visited", "Want To Visit"]
   @countries = Country.all()
   erb(:"cities/new")
@@ -21,13 +21,13 @@ get '/cities/status/:status' do
   @cities = City.all()
   if params[:status] == 'visited'
     @city_status = City.visits('Visited')
-    @city_title = "Visited Cities!"
+    @city_title = "Visited Cities"
   elsif params[:status] == 'not-visited'
     @city_status = City.visits('Not Visited')
     @city_title = "Cities Not Visited"
   elsif params[:status] == 'want-to-visit'
     @city_status = City.visits('Want To Visit')
-    @city_title = "Cities To Visit!"
+    @city_title = "Cities To Visit"
   else
     halt 404, "Invalid City Visited Status"
   end
@@ -35,7 +35,7 @@ get '/cities/status/:status' do
 end
 
 post '/cities' do
-  City.new(params).save
+  City.new(params).save()
   redirect('/cities')
 end
 
