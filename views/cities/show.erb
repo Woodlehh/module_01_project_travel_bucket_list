@@ -2,4 +2,4 @@
 <h5>Country: <%= @city.country.name %></h5>
 <h5><%= @city.visit_status %></h5>
 
-<form action="/cities/<%=@city.id%>/edit"><input type="submit" value="Change Details or Delete"></form>
+<form action="/cities/<%=@city.id%>/edit"><button class="button" type="submit"><span>Change Details or Delete</span></button></form>

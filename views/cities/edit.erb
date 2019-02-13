@@ -23,7 +23,7 @@
     <% end %>
   </select>
   <br>
-  <input type="submit" value="Confirm Edit" class="button"/>
+  <button class="button" type="submit"><span>Confirm Edit</span></button>
   </form>
 
-  <form action="/cities/<%= @city.id %>/delete" method="POST"><input type="submit" value="Delete" class="button"></form>
+  <form method="POST" action="/cities/<%= @city.id %>/delete"><button class="button" type="submit"> <span>Delete</span></button></form>
