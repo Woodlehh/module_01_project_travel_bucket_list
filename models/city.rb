@@ -29,7 +29,7 @@ class City
   end
 
   def country()
-    country = Country.find(@country_id)
+    country = Country.find_by_id(@country_id)
     return country
   end
 
